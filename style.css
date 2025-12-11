@@ -1,9 +1,243 @@
+/* ============================
+   PAGE LOAD FADE
+============================ */
 body {
   margin: 0;
   padding: 0;
+  font-family: 'Georgia', serif;
+  background-color: #f4f6fa;
+  color: #2d2d2d;
+  opacity: 0;
+  transition: opacity 1.4s ease;
 }
+
+body.loaded {
+  opacity: 1;
+}
+
+/* ============================
+ MAP LAYOUT
+============================ */
 #map {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 100%; }
+  width: 100%;
+  height: 100%;
+  filter: brightness(96%) saturate(85%);
+}
+
+/* ============================
+ INTRO BOX
+============================ */
+#intro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255,255,240,0.95);
+  padding: 30px 40px;
+  border-radius: 16px;
+  text-align: center;
+  font-family: 'Georgia', serif;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.2);
+  z-index: 3000;
+  max-width: 420px;
+}
+
+#intro h2 {
+  margin-top: 0;
+  color: #3a2e2e;
+}
+
+#intro button {
+  margin-top: 15px;
+  padding: 8px 18px;
+  background: #8EADBD;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Georgia', serif;
+  cursor: pointer;
+}
+
+#intro.hidden {
+  display: none;
+}
+
+/* ============================
+ TITLE BOX (combined)
+============================ */
+#title-box {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 2000;
+
+  background: rgba(255, 255, 240, 0.88);
+  padding: 18px 26px;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+  max-width: 480px;
+}
+
+#title-box h1 {
+  margin: 0;
+  font-size: 30px;
+  color: #3a2e2e;
+}
+
+#title-box #subtitle {
+  margin-top: 8px;
+  font-style: italic;
+  font-size: 15px;
+  color: #574f4a;
+  line-height: 1.4;
+}
+
+/* ============================
+ CATEGORY FILTERS
+============================ */
+#filters {
+  position: absolute;
+  top: 220px;       /* ⭐ Increased spacing */
+  left: 20px;
+  background: rgba(255, 255, 240, 0.88);
+  padding: 12px 18px;
+  border-radius: 14px;
+  font-family: 'Georgia', serif;
+  font-size: 14px;
+  z-index: 2000;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+}
+
+#filters label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* ============================
+ POPUPS
+============================ */
+.mapboxgl-popup {
+  opacity: 0;
+  animation: fadePopup 0.5s ease forwards;
+}
+
+@keyframes fadePopup {
+  to { opacity: 1; }
+}
+
+.mapboxgl-popup-content {
+  background: rgba(250, 244, 230, 0.96);  /* ⭐ darker warm cream */
+  border-radius: 26px;                    /* ⭐ softer/rounder edges */
+  padding: 26px;
+  box-shadow: 0 10px 32px rgba(20, 30, 48, 0.25);
+  font-family: 'Georgia', serif;
+  color: #3a2e2e;
+  line-height: 1.6;
+  backdrop-filter: blur(2px);
+}
+
+.mapboxgl-popup-content h3 {
+  color: #3a2e2e !important;
+}
+
+.mapboxgl-popup-tip { display: none; }
+
+.mapboxgl-popup-close-button {
+  color: #A85444;
+  font-size: 22px;
+  opacity: 0.9;
+}
+
+/* ============================
+ LEGEND (with fade-in)
+============================ */
+#legend {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 2000;
+
+  opacity: 0;
+  transition: opacity 1.2s ease;
+
+  background: rgba(255, 255, 255, 0.95);
+  padding: 14px 18px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+  font-family: 'Georgia', serif;
+}
+
+body.loaded #legend {
+  opacity: 1;
+}
+
+#legend h3 {
+  margin: 0 0 6px 0;
+  font-size: 17px;
+  color: #3a2e2e;
+}
+
+#legend p {
+  margin: 4px 0 0 0;
+  font-size: 15px;
+}
+
+#legend .dot {
+  height: 14px;
+  width: 14px;
+  background-color: #C47A6A;
+  border: 3px solid #9A4B40;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+/* ============================
+ CREDITS
+============================ */
+#credits {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2000;
+
+  background: rgba(255,255,255,0.92);
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-family: 'Georgia', serif;
+  font-size: 13px;
+  color: #4a4a4a;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+}
+
+#credits a {
+  color: #7a5b4a;
+  text-decoration: underline;
+}
+
+#credits a:hover {
+  color: #3a2e2e;
+}
+
+/* Map attribution */
+.mapboxgl-ctrl-attrib {
+  font-family: 'Georgia', serif;
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+/* ============================
+ FILM GRAIN OVERLAY
+============================ */
+#grain {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+  opacity: 0.08;
+  z-index: 2;
+}
