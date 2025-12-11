@@ -1,19 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
     <meta charset="UTF-8">
-    <title>Final Project</title>
+    <title>Antioch Youth & Community Map</title>
+
     <link rel="stylesheet" href="./style.css">
 
-  </head>
-    
-  <body>
-  <div id="map">
-</div>
-<script src='https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.js'></script>
-    <script  src="./script.js"></script>
+    <!-- Mapbox -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.css" rel="stylesheet" />
 
-  </body>
-  
+</head>
+
+<body>
+
+    <!-- Intro Box -->
+    <div id="intro">
+        <h2>Welcome to the Antioch Youth & Community Map</h2>
+        <p>This map explores the places where young people gather, grow, and form communal memories across Antioch.</p>
+        <button id="intro-close">Enter Map</button>
+    </div>
+
+    <!-- Combined Title + Subtitle Box -->
+    <div id="title-box">
+        <h1>Antioch Youth & Community Map</h1>
+        <p id="subtitle">Charting the quiet places where young people gather, grow, and belong — honoring Antioch as a community-first town.</p>
+    </div>
+
+    <!-- Category Filters -->
+    <div id="filters">
+        <label><input type="checkbox" value="Youth Center" checked> Youth Center</label>
+        <label><input type="checkbox" value="Park" checked> Park</label>
+        <label><input type="checkbox" value="School" checked> School</label>
+        <label><input type="checkbox" value="Recreation" checked> Recreation</label>
+        <label><input type="checkbox" value="Community Hub" checked> Community Hub</label>
+    </div>
+
+    <!-- Film Grain -->
+    <div id="grain"></div>
+
+    <!-- Map -->
+    <div id="map"></div>
+
+    <!-- Legend -->
+    <div id="legend">
+        <h3>Antioch Landmarks</h3>
+        <p><span class="dot"></span> Communal Place</p>
+    </div>
+
+    <!-- Credits -->
+    <div id="credits">
+        <p>
+            Cartography by Dominic Ceja • 2025<br>
+            Data © Mapbox, OpenStreetMap,<br>
+            <a href="https://www.nytimes.com/2020/02/25/realestate/antioch-california.html" target="_blank">Candace Jackson</a>,
+            <a href="https://www.nytimes.com/2025/01/05/us/california-antioch-police-department-racism.html" target="_blank">Orlando Mayorquín</a>, &
+            <a href="https://www.antiochca.gov/837/Parks-Facilities" target="_blank">City of Antioch Parks & Recreation</a>
+        </p>
+    </div>
+
+    <!-- Script -->
+    <script src="./script.js"></script>
+
+</body>
+
 </html>
