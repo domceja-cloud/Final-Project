@@ -100,7 +100,7 @@ body.loaded {
 ============================ */
 #filters {
   position: absolute;
-  top: 220px;       /* ⭐ Increased spacing */
+  top: 220px;       /* Increased spacing */
   left: 20px;
   background: rgba(255, 255, 240, 0.88);
   padding: 12px 18px;
@@ -129,8 +129,8 @@ body.loaded {
 }
 
 .mapboxgl-popup-content {
-  background: rgba(250, 244, 230, 0.96);  /* ⭐ darker warm cream */
-  border-radius: 26px;                    /* ⭐ softer/rounder edges */
+  background: rgba(250, 244, 230, 0.96);  /* darker warm cream */
+  border-radius: 26px;                    /* softer/rounder edges */
   padding: 26px;
   box-shadow: 0 10px 32px rgba(20, 30, 48, 0.25);
   font-family: 'Georgia', serif;
